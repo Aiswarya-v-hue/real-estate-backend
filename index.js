@@ -1,6 +1,5 @@
 require('events').EventEmitter.defaultMaxListeners = 20;
 
-
 const express = require('express');
 const cors = require('cors');
 require('./Database/Dataconfig'); // Ensure your database configuration is loaded
@@ -23,23 +22,21 @@ app.use('/api', require('./Routers/sitedetailrouters')); // Main API routes
 const brokerroutes = require('./Routers/brokerrouter');
 app.use('/api/broker', brokerroutes); 
 const signuprouter = require('./Routers/logsiguprouter');
-app.use('/api',signuprouter);
+app.use('/api', signuprouter);
 
-const loginrouter = require('./Routers/logsiguprouter')
-app.use('/api',loginrouter);
+const loginrouter = require('./Routers/logsiguprouter');
+app.use('/api', loginrouter);
 
-const buyerrouter = require('./Routers/buyrouter')
-app.use('/api/buyer',buyerrouter)
+const buyerrouter = require('./Routers/buyrouter');
+app.use('/api/buyer', buyerrouter);
 
-
+// Root route to avoid "Cannot GET /"
+app.get("/", (req, res) => {
+    res.send("Backend is running successfully!");
+});
 
 // Make sure this is set up before app.listen()
 console.log("broker routes initialized");
-
-
-
-
-
 
 // Start server
 app.listen(port, (err) => {
@@ -49,4 +46,3 @@ app.listen(port, (err) => {
     console.log(`Server is running on http://localhost:${port}`);
   }
 });
-
