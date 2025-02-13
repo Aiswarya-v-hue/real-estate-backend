@@ -21,11 +21,11 @@ app.use('/api', require('./Routers/sitedetailrouters')); // Main API routes
 
 const brokerroutes = require('./Routers/brokerrouter');
 app.use('/api/broker', brokerroutes); 
-const signuprouter = require('./Routers/logsiguprouter');
-app.use('/api', signuprouter);
+const logsignuprouter = require('./Routers/logsiguprouter');
+app.use('/api', logsignuprouter);
 
-const loginrouter = require('./Routers/logsiguprouter');
-app.use('/api', loginrouter);
+// const loginrouter = require('./Routers/logsiguprouter');
+// app.use('/api', loginrouter);
 
 const buyerrouter = require('./Routers/buyrouter');
 app.use('/api/buyer', buyerrouter);
